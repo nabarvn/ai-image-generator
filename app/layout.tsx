@@ -4,6 +4,9 @@ import "./globals.scss";
 export const metadata = {
   title: "AI Image Generator",
   description: "An AI tool which can be used to generate awesome images.",
+  icons: {
+    icon: "/nabarun-ai.png",
+  },
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
