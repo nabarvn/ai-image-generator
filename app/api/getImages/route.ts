@@ -1,3 +1,7 @@
+export const config = {
+  runtime: "edge",
+};
+
 export async function GET(request: Request) {
   // Connect to Microsoft Azure Function endpoint
   const response = await fetch(
