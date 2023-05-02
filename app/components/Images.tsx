@@ -3,6 +3,7 @@
 import { fetchImages } from "@/lib";
 import Image from "next/image";
 import useSWR from "swr";
+import { ArrowPathIcon } from "@heroicons/react/24/outline";
 
 type Image = {
   name: string;
@@ -34,9 +35,18 @@ const Images = () => {
 
       <button
         onClick={() => refreshImages(data)}
-        className='fixed bottom-5 right-3 md:bottom-9 md:right-9 w-32 md:w-40 text-xs md:text-base bg-violet-500/90 text-white rounded-md font-bold active:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500 px-5 py-3 z-20'
+        className='fixed hidden md:block bottom-5 right-3 md:bottom-9 md:right-9 w-32 md:w-40 text-xs md:text-base bg-violet-500/90 text-white rounded-md font-bold active:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500 px-5 py-3 z-20'
       >
         {!isLoading && isValidating ? "Refreshing..." : "Refresh Images"}
+      </button>
+
+      <button
+        onClick={() => refreshImages(data)}
+        className='fixed md:hidden bottom-5 right-3 md:bottom-9 md:right-9 bg-violet-500/90 text-white rounded-md active:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500 p-2 z-20'
+      >
+        <ArrowPathIcon
+          className={`h-7 w-7 ${!isLoading && isValidating && "animate-spin"}`}
+        />
       </button>
 
       <div className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 px-1 md:px-9'>
