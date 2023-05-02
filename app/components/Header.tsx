@@ -27,11 +27,16 @@ const Header = () => {
       <div className='flex flex-col md:flex-row text-xs h-full md:text-base divide-y md:divide-x md:divide-y-0 items-center text-gray-700'>
         <Link
           href='https://chad.nabarun.ai'
+          target='_blank'
           className='py-1 md:px-2 font-semibold md:text-right'
         >
           Try ChadGPT
         </Link>
-        <Link href='https://nabarun.xyz' className='py-1 md:px-2 font-semibold'>
+        <Link
+          href='https://nabarun.xyz'
+          target='_blank'
+          className='py-1 md:px-2 font-semibold'
+        >
           Nabarun
         </Link>
       </div>
