@@ -70,7 +70,7 @@ const Prompt = () => {
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          rows={1}
+          rows={2}
           className='flex-1 text-base break-words outline-none rounded-md resize-none overflow-y-auto scrollbar-thin scrollbar-thumb-violet-500 scrollbar-thumb-rounded-lg p-4'
           placeholder={
             (loading && "Nabarun.ai is thinking...") ||
