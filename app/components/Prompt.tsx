@@ -22,7 +22,7 @@ const Prompt = () => {
   const loading = isLoading || isValidating;
 
   const submitPrompt = async (useSuggestion?: boolean) => {
-    const customPrompt = input;
+    const customPrompt = input.trim();
     setInput("");
 
     const prompt = useSuggestion ? suggestion : customPrompt;
