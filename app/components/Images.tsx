@@ -68,6 +68,7 @@ const Images = () => {
             </div>
             <Image
               priority
+              unoptimized
               src={image.url}
               alt={image.name}
               height={700}
