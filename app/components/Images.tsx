@@ -35,7 +35,8 @@ const Images = () => {
 
       <button
         onClick={() => refreshImages(data)}
-        className='fixed hidden md:block bottom-5 right-3 md:bottom-9 md:right-9 w-32 md:w-40 text-xs md:text-base bg-violet-500/90 text-white rounded-md font-bold active:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500 px-5 py-3 z-20'
+        className='fixed hidden md:block bottom-5 right-3 md:bottom-9 md:right-9 w-32 md:w-40 text-xs md:text-base bg-violet-500/90 text-white rounded-md font-bold active:bg-violet-700/90 focus:outline-none focus:ring-2 focus:ring-violet-500 disabled:active:bg-violet-500/90 disabled:cursor-not-allowed px-5 py-3 z-20'
+        disabled={isValidating}
       >
         {!isLoading && isValidating ? "Refreshing..." : "Refresh Images"}
       </button>
@@ -68,9 +69,13 @@ const Images = () => {
             </div>
             <Image
               priority
-              unoptimized
               src={image.url}
-              alt={image.name}
+              alt={`${image.name
+                .split("_")
+                .shift()
+                ?.toString()
+                .split(".")
+                .shift()}`}
               height={700}
               width={700}
               className='w-full rounded-sm shadow-2xl drop-shadow-lg -z-10'
