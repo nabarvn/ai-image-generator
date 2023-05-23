@@ -4,6 +4,7 @@ import { fetchImages } from "@/lib";
 import Image from "next/image";
 import useSWR from "swr";
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
+import OptimizedImage from "./OptimizedImage";
 
 type Image = {
   name: string;
@@ -54,9 +55,9 @@ const Images = () => {
         {data?.images.map((image: Image, i: number) => (
           <div
             key={image.url}
-            className={`relative cursor-help ${
+            className={`relative cursor-help aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-7 ${
               i == 0 && "md:col-span-2 md:row-span-2"
-            } hover:scale-[102%] transition-transform duration-200 ease-in-out`}
+            } hover:scale-[102%] transition-transform duration-200 ease-in-out rounded-sm shadow-2xl drop-shadow-lg`}
           >
             {/* Create a white div that appears when the parent div is hovered upon */}
             <div className='absolute flex justify-center items-center h-full w-full bg-white opacity-0 hover:opacity-75 transition-opacity duration-200 z-10'>
@@ -67,18 +68,12 @@ const Images = () => {
                 &quot;
               </p>
             </div>
-            <Image
-              priority
-              src={image.url}
-              alt={`${image.name
-                .split("_")
-                .shift()
-                ?.toString()
-                .split(".")
-                .shift()}`}
-              height={700}
-              width={700}
-              className='w-full rounded-sm shadow-2xl drop-shadow-lg -z-10'
+
+            {/* Provides with a blur effect before the image gets rendered */}
+            <OptimizedImage
+              imageKey={i}
+              imageName={image.name}
+              imageUrl={image.url}
             />
           </div>
         ))}
