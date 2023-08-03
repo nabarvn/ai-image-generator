@@ -25,8 +25,8 @@ const OptimizedImage = ({ imageKey, imageName, imageUrl }: Image) => {
               duration-700 ease-in-out
               ${
                 isLoading
-                  ? "scale-105 blur-2xl grayscale opacity-0"
-                  : "scale-100 blur-0 grayscale-0 opacity-100"
+                  ? "scale-105 blur-2xl grayscale opacity-0 animate-pulse"
+                  : "scale-100 blur-0 grayscale-0 opacity-100 animate-none"
               } w-full -z-10`}
         onLoadingComplete={() => setLoading(false)}
       />
