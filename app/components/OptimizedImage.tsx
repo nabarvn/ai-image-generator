@@ -15,9 +15,9 @@ const OptimizedImage = ({ imageKey, imageName, imageUrl }: Image) => {
   return (
     <>
       <Image
-        unoptimized
+        unoptimized={imageKey > 5 ? true : false}
         priority={imageKey === 0 ? true : false}
-        loading={`${imageKey === 0 ? "eager" : "lazy"}`}
+        loading={imageKey === 0 ? "eager" : "lazy"}
         src={imageUrl}
         alt={`${imageName.split("_").shift()?.toString().split(".").shift()}`}
         fill
