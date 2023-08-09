@@ -16,11 +16,16 @@ const OptimizedImage = ({ imageKey, imageName, imageUrl }: Image) => {
     <>
       <Image
         unoptimized={imageKey > 5 ? true : false}
-        priority={imageKey === 0 ? true : false}
-        loading={imageKey === 0 ? "eager" : "lazy"}
+        priority={imageKey < 5 ? true : false}
+        loading={imageKey < 5 ? "eager" : "lazy"}
         src={imageUrl}
         alt={`${imageName.split("_").shift()?.toString().split(".").shift()}`}
         fill
+        sizes={
+          imageKey > 5
+            ? "(max-width: 1200px) 256px, (max-width: 828px) 128px, (max-width: 640px) 96px, 384px"
+            : "75vw"
+        }
         className={`
               duration-700 ease-in-out
               ${
