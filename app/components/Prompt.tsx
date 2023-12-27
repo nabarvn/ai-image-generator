@@ -72,13 +72,15 @@ const Prompt = () => {
           onChange={(e) => setInput(e.target.value)}
           rows={2}
           className='flex-1 text-base break-words outline-none rounded-md resize-none overflow-y-auto scrollbar-thin scrollbar-thumb-violet-500 scrollbar-thumb-rounded-lg disabled:cursor-not-allowed p-4'
-          placeholder={
-            (loading && "Nabarun.ai is thinking...") ||
-            suggestion ||
-            "Enter a prompt..."
-          }
+          placeholder='Nabarun.ai is taking a short break. Stay tuned for future updates!'
           onKeyDown={handleKeyDown}
-          disabled={loading}
+          disabled
+          // placeholder={
+          //   (loading && "Nabarun.ai is thinking...") ||
+          //   suggestion ||
+          //   "Enter a prompt..."
+          // }
+          // disabled={loading}
         />
         <button
           type='submit'
@@ -87,7 +89,8 @@ const Prompt = () => {
               ? "bg-violet-500 active:bg-violet-700 text-white transition-colors duration-200"
               : "text-gray-300 cursor-not-allowed"
           } border-t lg:border-t-0 p-4`}
-          disabled={!input || loading}
+          disabled
+          // disabled={!input || loading}
         >
           Generate
         </button>
@@ -95,7 +98,8 @@ const Prompt = () => {
           type='button'
           className='bg-violet-400 active:bg-violet-700 text-white transition-colors duration-200 font-bold disabled:text-gray-300 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:active:bg-gray-400 p-4'
           onClick={() => submitPrompt(true)}
-          disabled={loading}
+          disabled
+          // disabled={loading}
         >
           Use Suggestion
         </button>
@@ -103,7 +107,8 @@ const Prompt = () => {
           type='button'
           className='bg-white active:bg-gray-100 text-violet-500 border-none transition-colors duration-200 rounded-b-md md:rounded-r-md md:rounded-bl-none disabled:cursor-not-allowed disabled:active:bg-white font-bold p-4'
           onClick={() => mutate()}
-          disabled={loading}
+          disabled
+          // disabled={loading}
         >
           New Suggestion
         </button>
